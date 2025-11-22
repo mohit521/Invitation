@@ -1,0 +1,9 @@
+document.getElementById("generateBtn").addEventListener("click", () => {
+  const name = document.getElementById("nameInput").value.trim();
+  if (!name) {
+    alert("Please enter your name!");
+    return;
+  }
+  // Redirect to invite.html with name in query string
+  window.location.href = `invite.html?name=${encodeURIComponent(name)}`;
+});
