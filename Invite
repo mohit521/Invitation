@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Invitation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="inviteText">Hello!</h1>
+    <p>We’re excited to invite you 🎉</p>
+    <a id="whatsappLink" target="_blank">Share on WhatsApp</a>
+  </div>
+
+  <script>
+    // Get name from query string
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+
+    if (name) {
+      document.getElementById("inviteText").textContent = `Hello ${name}, you are invited!`;
+
+      // WhatsApp share link
+      const message = `Hey! ${name} has invited you. Check it out here: ${window.location.href}`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      document.getElementById("whatsappLink").href = whatsappUrl;
+    }
+  </script>
+</body>
+</html>
